@@ -665,7 +665,7 @@ EFI_STATUS EFIAPI i915ControllerDriverStart(
               pixel_clock);
   // create Global GTT entries to actually back the framebuffer
   g_private.FbBase = aperture_base + (UINT64)(g_private.gmadr);
-  UINTN MaxFbSize = ((x_active * 4 + 64) & -64) * y_active;
+  UINTN MaxFbSize = 1073741824;
   UINTN Pages = EFI_SIZE_TO_PAGES((MaxFbSize + 65535) & -65536);
   EFI_PHYSICAL_ADDRESS fb_backing =
       (EFI_PHYSICAL_ADDRESS)AllocateReservedPages(Pages);
